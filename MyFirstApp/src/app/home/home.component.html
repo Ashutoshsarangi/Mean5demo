@@ -1,0 +1,77 @@
+<div *ngIf="getUserList">
+  <div *ngFor="let list of getUserList">
+  <div >
+    <label>Name</label>
+    <input type="text" [(ngModel)]="list.name" name="txtname">
+  </div><br>
+  <div>
+    <label>Address</label>
+    <textarea [(ngModel)]="list.address" name="txtaddress"></textarea>
+  </div>
+  <div>
+    <label>Gender</label>
+    <input type="text" [(ngModel)]=list.gender name="radiogender">
+    </div>
+  <div>
+    <label>Food</label>
+    <input type="checkbox" [(ngModel)]="list.fish"  name="chkFish">Fish
+    <input type="checkbox" [(ngModel)]="list.egg"  name="chkEgg">Egg
+    <input type="checkbox" [(ngModel)]="list.ckn"  name="chkCkn">Chicken
+  </div>
+  <div>
+      <label>Select Grade </label>
+      <!-- In the select Box 2 way binding it picks the value of option field by default 
+      it assumes the html inside the option field is the value of this.-->
+    <select [(ngModel)]="list.grade" name="sltGrade">
+      <option>Choose atleast One Option</option>
+      <option value="123">A</option>  
+      <option>B</option>
+      <option>C</option>
+      <option>D</option>
+      <option>E</option>
+    </select>
+    <hr>
+  </div>
+  <button type="button" (click)="editData(list)">Edit</button>
+  <button type="button" (click)="deleteData(list.name)">Delete</button>
+</div>
+</div>
+<h1>Add New User...</h1>
+<form>
+    <div>
+        <label>Name</label>
+        <input type="text" [(ngModel)]="user.name" name="txtname">
+      </div><br>
+      <div>
+        <label>Address</label>
+        <textarea [(ngModel)]="user.address" name="txtaddress"></textarea>
+      </div>
+      <div>
+        <label>Gender</label>
+        <input type="radio" value="male" [(ngModel)]="user.gender" name="radiogender">Male
+        <input type="radio" value="female" [(ngModel)]="user.gender" name="radiogender">Female
+      </div>
+      <div>
+        <label>Food</label>
+        <input type="checkbox" [(ngModel)]="user.fish"  name="chkFish">Fish
+        <input type="checkbox" [(ngModel)]="user.egg"  name="chkEgg">Egg
+        <input type="checkbox" [(ngModel)]="user.ckn"  name="chkCkn">Chicken
+      </div>
+      <div>
+          <label>Select Grade </label>
+          <!-- In the select Box 2 way binding it picks the value of option field by default 
+          it assumes the html inside the option field is the value of this.-->
+        <select [(ngModel)]="user.grade" name="sltGrade">
+          <option>Choose atleast One Option</option>
+          <option value="123">A</option>  
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+          <option>E</option>
+        </select>
+      </div>
+      <button type="button" (click)="saveUSer(user)">Save</button>
+      <button type="button" (click)="updateData(user)">Update</button>
+</form>
+<br>
+<button (click)="popToast()">Notification</button>
